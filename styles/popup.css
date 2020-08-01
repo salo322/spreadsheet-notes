@@ -1,0 +1,145 @@
+body{
+    height:auto;
+    width:auto;
+    background: rgb(214,206,206);
+    background: linear-gradient(90deg, rgba(214,206,206,1) 0%, rgba(131,131,131,1) 100%);
+    
+}
+.google-sign-in-div-1{
+    height:auto;
+    display:block;
+}
+.container-notes-1{
+    background-color: #ffffff;
+    height:50px;
+    border-radius: 5px;
+    margin:10px;
+}
+.container-notes-2{
+    background-color: #ffffff;
+    height:190px;
+    border-radius: 5px;
+    margin:10px;
+}
+.container-notes-3{
+    background-color: #ffffff;
+    height:190px;
+    border-radius: 5px;
+    margin:10px;
+}
+.textarea-fflbabdl-2{
+    outline: none;
+    resize: none;
+}
+.cont-second{
+    display: flex;
+    justify-content: space-between;
+    padding:12px 30px;
+    width:470px;
+}
+.textarea-fflbabdl-1{
+    resize: none;
+    outline: none;
+}
+.note-button-2{
+    padding:5px 8px;
+    border:none;
+    outline: none;
+    background: #3282b8;
+
+}
+.note-button-1{
+    padding:5px 6px;
+    border:none;
+    outline: none;
+    background: #3282b8;
+}
+
+.g-sign-in-container-1{
+    width:auto;
+    height: auto;
+    display: none;
+}
+.g-sign-in{
+    display: flex;
+    width:250px;
+    height:46px;
+    background-color: rgb(255, 255, 255) !important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px 1px !important;
+    margin: 100px 100px;
+}
+.g-sign-in-img{
+    height:40px;
+    margin:3px;
+}
+.g-sign-in-title{
+    color:#838383;
+    margin:10px;
+}
+.new-note-slmxyicv-2{
+    resize: none;
+    outline: none;
+    border: none;
+    background: #eeeeee;
+    margin-top: -4px;
+    padding:10px;
+
+}
+.new-note-slmxyicv-1{
+    resize: none;
+    outline: none;
+    border: none;
+    background: #eeeeee;
+    padding:10px;
+}
+.notes-pogdwfmx{
+   padding:30px 20px;
+}
+   
+.flex-xjwcymvj{
+    display: flex;
+    width: 500px;
+}
+.bcontainer-lfwgoenb{
+    margin: 30px 0;
+
+}
+.button-morqscjc{
+    outline: none;
+    border: none;
+    background: #3282b8;
+    padding: 5px 8px;
+}
+.new-note-slmxyicv-1{
+    
+}
+.new-note-slmxyicv-1::-webkit-input-placeholder {
+    padding: 10px;
+    font-size: 18px;
+    font-weight: bold;
+ }
+.new-note-slmxyicv-2::-webkit-input-placeholder {
+    padding: 0  10px;
+ }
+.notes-pogdwfmx{
+    width:400px;
+    
+}
+.grey-bjbj{
+    background:#eeeeee;
+    width:390px;
+    height:145px
+}
+#date-brwcwbxs{
+  background: #eeeeee;
+  margin:10px 0;
+}
+.li-for-new-text{
+   padding:20px;
+}
+.flex-knanaiifj{
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    padding:0 40px 0 20px;
+}

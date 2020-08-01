@@ -1,0 +1,39 @@
+{
+    
+    "name": "Spreadsheets notes",
+    "description": "Spreadsheets notes",
+    "version": "1.0",
+    "permissions": [
+        "storage",
+        "tabs",
+        "<all_urls>"
+    ],
+    "background": {
+        "scripts": [
+            "scripts/jquery.js",
+            "scripts/background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/*",
+                "https://*/*"
+            ],
+            "js": [
+                "scripts/jquery.js",
+                "scripts/content.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_icon": {                   
+          "16": "images/note.png"         
+                     
+        },
+        "default_title": "Google Mail",      
+        "default_popup": "popup.html"       
+      },
+      "manifest_version": 2
+}
