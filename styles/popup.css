@@ -26,6 +26,7 @@ body{
     height:190px;
     border-radius: 5px;
     margin:10px;
+    overflow: hidden;
 }
 .textarea-fflbabdl-2{
     outline: none;
@@ -141,5 +142,40 @@ body{
     display: flex;
     justify-content: space-between;
     list-style-type: none;
-    padding:0 40px 0 20px;
+    padding:0 40px 0 0;
 }
+.ul-list-items-jgdguwgdjq{
+    max-height: 140px;
+    overflow-y: auto;
+}
+.date-cur{
+    background: #eeeeee;
+}
+.li-hhsvhdhjsd{
+    background: #eeeeee;
+}
+.li-flex-sgdgf{
+    background: #eeeeee;
+    width: 300px;
+}
+.li-html-gufidfifug{
+    display: flex;
+    justify-content: space-between;
+    width:470px;
+    padding: 5px 0;
+}
+.img-flex-ddtg{
+    display: flex;
+    justify-content: space-around;
+}
+.val-hgfhgdufg{
+    width:300px;
+    background:#eeeeee;
+}
+.curDate-vvugi{
+    background: #eeeeee;
+}
+.margin-svjsj{
+    margin:0 20px;
+}
+
