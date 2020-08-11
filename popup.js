@@ -1,5 +1,5 @@
 document.querySelector('#authorize_button').addEventListener('click',function(){
-chrome.runtime.sendMessage({cmd: 'getAuthorize'}, function (signedIn) {
+chrome.runtime.sendMessage({cmd: 'doAuthorize'}, function (signedIn) {
     if(signedIn){
         document.querySelector('.g-sign-in-container-1').style.display = 'none';
         document.querySelector('.google-sign-in-div-1').style.display = 'block';
@@ -41,3 +41,6 @@ function signInClick(event){
         console.log(resp);
     });
 }
+
+
+
