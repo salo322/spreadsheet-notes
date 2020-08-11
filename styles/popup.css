@@ -7,7 +7,7 @@ body{
 }
 .google-sign-in-div-1{
     height:auto;
-    display:block;
+    display:none;
 }
 .container-notes-1{
     background-color: #ffffff;
@@ -59,7 +59,7 @@ body{
 .g-sign-in-container-1{
     width:auto;
     height: auto;
-    display: none;
+    display: block;
 }
 .g-sign-in{
     display: flex;
@@ -144,10 +144,7 @@ body{
     list-style-type: none;
     padding:0 40px 0 0;
 }
-.ul-list-items-jgdguwgdjq{
-    max-height: 140px;
-    overflow-y: auto;
-}
+
 .date-cur{
     background: #eeeeee;
 }
@@ -179,3 +176,54 @@ body{
     margin:0 20px;
 }
 
+.box {
+	height: 100px;
+    width: 0px;
+    margin:20px 20px;
+	background-color: #eeeeee;
+    left: 0px;
+    position: absolute;
+	transition: left 1s,width 1s;
+	-webkit-transition: all 1s;
+    -moz-transition: all 1s;
+    -o-transition: all 1s;
+
+}
+.box.active{
+  left : 20px;
+  width : 350px;
+}
+
+.dn {
+    display: none
+  }
+  
+  .db {
+    display: block
+  }
+  .ul-list-items-jgdguwgdjq{
+    max-height: 140px;
+    overflow-y: auto;
+    margin: 0 -20px;
+}
+.hide-div-sgjg{
+    display: flex;
+    justify-content: space-between;
+}
+.forflex-sgdhsvj{
+    margin: 30px;
+}
+.back-hdkjdf{
+    margin-top:20px;
+    margin-right:20px;
+}
+.val-hgfhgdufg{
+    display: flex;
+}
+.hideval2ggjg{
+color:#eeeeee;
+}
+#signout_button{
+    background:#3282b8;
+    border:none;
+}

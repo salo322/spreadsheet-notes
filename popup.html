@@ -1,58 +1,53 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles/popup.css">
-</head>
-<body>
-<div class="google-sign-in-div-1">
-    <div class="container-notes-1">
-        <div class="cont-second">
-    <textarea class="textarea-fflbabdl-1"rows="1" cols="20" ></textarea>
-    <textarea class="textarea-fflbabdl-2"rows="1" cols="15"></textarea>
-    <input type="button" value="Apply" class="note-button-1">
-    <input type="button" value="Sign Out" class="note-button-2">
-    </div>
-    </div>
-    <div class="container-notes-2">
- <div class="flex-xjwcymvj">
-    <div class="notes-pogdwfmx">
-       <div class="grey-bjbj">
-        <textarea class="new-note-slmxyicv-1"  rows="3" cols="45" placeholder="My new Note"></textarea>
-        <textarea class="new-note-slmxyicv-2"  rows="4" cols="45" placeholder="'Persistance is very important You should not give up unless you are forced to give up'. -Elon Musk "></textarea>
-       </div>
-    </div>
-<!---->
-    <div class="bcontainer-lfwgoenb">
-        <input type="button" class="button-morqscjc" value="Add New">
-        <div id="date-brwcwbxs"></div>
-    </div>
- </div>
-
-        
-      
-    </div>
-    <div class="container-notes-3">
-        <ul class="ul-list-items-jgdguwgdjq">
+<html>
+  <head>
+    <title>Google Sheets API Quickstart</title>
+    <meta charset="utf-8" />
+  <link rel="stylesheet" href="./styles/popup.css">
+  </head>
+  <body>
+ 
+    <div class="google-sign-in-div-1">
+      <div class="container-notes-1">
+          <div class="cont-second">
+      <textarea class="textarea-fflbabdl-1"rows="1" cols="20" ></textarea>
+      <textarea class="textarea-fflbabdl-2"rows="1" cols="15"></textarea>
+      <input type="button" value="Apply" class="note-button-1">
+      <button id="signout_button">Sign Out</button>
+      </div>
+      </div>
+      <div class="container-notes-2">
+   <div class="flex-xjwcymvj">
+      <div class="notes-pogdwfmx">
+         <div class="grey-bjbj">
+          <textarea class="new-note-slmxyicv-1"  rows="3" cols="45" placeholder="My new Note"></textarea>
+          <textarea class="new-note-slmxyicv-2"  rows="4" cols="45" placeholder="'Persistance is very important You should not give up unless you are forced to give up'. -Elon Musk "></textarea>
+         </div>
+      </div>
+  <!---->
+      <div class="bcontainer-lfwgoenb">
+          <input type="button" class="button-morqscjc" value="Add New">
+          <div id="date-brwcwbxs"></div>
+      </div>
+   </div>
+  
           
-        </ul>
-    </div>
-</div>
-
-
-<div class="google-sign-in-div-2">
-    <div class="g-sign-in-container-1">
-        <div class="g-sign-in">
-            <img src="./images/google.png" class="g-sign-in-img">
-            <div class="g-sign-in-title"> Sign in with Google</div>
-        </div>
-    </div>
-</div>
-
-
-    <script src="./scripts/jquery.js"></script>
-    <script src="./scripts/popup.js"></script>     
-</body>
+        
+      </div>
+      <div class="container-notes-3">
+          <ul class="ul-list-items-jgdguwgdjq">
+          </ul>
+          
+          <div class="second-add-div"></div>
+      </div>
+  </div>
+  
+  
+  <div class="google-sign-in-div-2">
+      <div class="g-sign-in-container-1">
+          <button id="authorize_button">Authorize</button>
+      </div>
+  </div>
+<script src="popup.js"></script>
+  </body>
 </html>

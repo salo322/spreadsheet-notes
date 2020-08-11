@@ -1,39 +1,34 @@
 {
-    
-    "name": "Spreadsheets notes",
-    "description": "Spreadsheets notes",
-    "version": "1.0",
-    "permissions": [
-        "storage",
-        "tabs",
-        "<all_urls>"
-    ],
-    "background": {
-        "scripts": [
-            "scripts/jquery.js",
-            "scripts/background.js"
-        ],
-        "persistent": false
-    },
-    "content_scripts": [
-        {
-            "matches": [
-                "http://*/*",
-                "https://*/*"
-            ],
-            "js": [
-                "scripts/jquery.js",
-                "scripts/content.js"
-            ]
-        }
-    ],
-    "browser_action": {
-        "default_icon": {                   
-          "16": "images/note.png"         
-                     
-        },
-        "default_title": "Google Mail",      
-        "default_popup": "popup.html"       
-      },
-      "manifest_version": 2
-}
+   "name": "Extension with GAPI tutorial",
+   "version": "1.0",
+   "description": "Uses OAuth to connect to Google's Spreadsheet API",
+   "manifest_version": 2,
+   "browser_action": {
+     "default_title": "GAPI Tutorial",
+     "default_popup":"popup.html"
+   },
+   "permissions": ["https://docs.google.com/spreadsheets/","https://script.google.com/",
+      "https://sheets.googleapis.com/*","identity", "identity.email"
+      ,"tabs", 
+      "storage",
+      "management", "notifications", "webRequestBlocking", "unlimitedStorage"
+   ],
+   "background": {
+     "page": "background.html",
+     "persistent": false
+   },
+   "oauth2": {
+      "client_id": "707683913606-vehdtsceu12bj2tgp6599j0ha7fq3q0d.apps.googleusercontent.com",
+      "spreadsheetId": "1E3GYq9--WvxYrMjcl-frjteJ6tSWUKTodQFEkytwGYs",
+      "key":"AIzaSyDc6uklXnZfPT2dwKInOpNznAdFGWnYNUQ",
+      "scopes": [
+          "https://www.googleapis.com/auth/spreadsheets.readonly",
+          "https://www.googleapis.com/auth/userinfo.email",
+          "profile"
+     ]},
+     "content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'"
+   
+     
+   
+
+ }
