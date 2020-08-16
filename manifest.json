@@ -7,11 +7,11 @@
      "default_title": "GAPI Tutorial",
      "default_popup":"popup.html"
    },
-   "permissions": ["https://docs.google.com/spreadsheets/","https://script.google.com/",
-      "https://sheets.googleapis.com/*","identity", "identity.email"
-      ,"tabs", 
-      "storage",
-      "management", "notifications", "webRequestBlocking", "unlimitedStorage"
+   "permissions": [
+    "https://docs.google.com/spreadsheets/","https://script.google.com/",
+      "https://sheets.googleapis.com/*","identity", "identity.email",
+      "https://apis.google.com/js/client.js?onload=onGAPILoad", 
+      "storage"
    ],
    "background": {
      "page": "background.html",
@@ -24,11 +24,13 @@
       "scopes": [
           "https://www.googleapis.com/auth/spreadsheets.readonly",
           "https://www.googleapis.com/auth/userinfo.email",
-          "profile"
+          "https://www.googleapis.com/auth/drive",
+          "https://www.googleapis.com/auth/drive.readonly",
+          "https://www.googleapis.com/auth/drive.file",
+          "https://www.googleapis.com/auth/spreadsheets",
+          "https://www.googleapis.com/auth/spreadsheets.readonly"
+
      ]},
      "content_security_policy": "script-src 'self' https://apis.google.com/; object-src 'self'"
-   
-     
-   
 
  }

@@ -2,19 +2,117 @@ const API_KEY = "AIzaSyDc6uklXnZfPT2dwKInOpNznAdFGWnYNUQ";
 const CLIENT_ID = "707683913606-vehdtsceu12bj2tgp6599j0ha7fq3q0d.apps.googleusercontent.com";
 const DISCOVERY_DOCS = ["https://sheets.googleapis.com/$discovery/rest?version=v4"];
 const SCOPES = "https://www.googleapis.com/auth/spreadsheets.readonly";
-const SPREADSHEET_ID = '1cHztpNp0LulgzutQA5KF675EROuq0ExKyDARPyXztTg';
 const SCOPE = 'https://www.googleapis.com/auth/spreadsheets.readonly';
-const SPREADSHEET_TAB_NAME = 'Sheet1';
+let params = {
+  "range":"Sheet1!A:C",
+  "majorDimension": "ROWS",
+  "values": [
+    
+  ],
+}
 
+let SPREADSHEET_ID;
+let SPREADSHEET_TAB_NAME;
+let index;
+
+
+chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+
+  if(request.message === 'getval'){
+  console.log(request.val)
+  console.log(request.val2)
+  SPREADSHEET_ID = request.val;
+  SPREADSHEET_TAB_NAME = request.val2;
+  }
+ 
+  
+
+  if(request.message==='getvalue'){
+  console.log(request.value1);
+  console.log(request.value2)
+  let text1 = request.value1;
+  let text2 = request.value2;
+  let date = new Date().toLocaleDateString("en", {year:"numeric", day:"2-digit", month:"2-digit"});
+  
+chrome.storage.local.get(['getToken'], function(result) {
+  let access_token = result.getToken;
+  if(access_token){
+  let array = [];
+  array.push(date, text1, text2)
+  params.values.push(array);
+ 
+
+  let init = {
+    method: 'PUT',
+    async: true,
+    body:JSON.stringify(params),
+    headers: {
+      Authorization: 'Bearer ' + access_token,
+      'Content-Type': 'application/json'
+    },
+      'contentType': 'json',
+       };
+   fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SPREADSHEET_TAB_NAME}!A:C?valueInputOption=USER_ENTERED`,
+      init)
+      .then((response) => console.log(response))
+
+        }
+      })
+    }
+
+
+    if(request.removeVal === 'delete'){
+      let index = request.ind;
+    
+      chrome.storage.local.get(['getToken'], function(result) {
+        let access_token = result.getToken;
+        if(access_token){
+          
+        let request = {
+          method: 'GET',
+          async: true,
+          headers: {
+            Authorization: 'Bearer ' + access_token,
+            'Content-Type': 'application/json'
+          },
+          'contentType': 'json',
+          };
+        fetch(
+            `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SPREADSHEET_TAB_NAME}!A:C`,
+            request)
+            .then((response) => response.json())
+            .then(function(data) {
+            let vals = data.values;
+            vals.pop()
+              console.log(vals)
+              
+            })
+    
+  
+
+               
+              
+    
+
+              }
+            })
+          }
+
+
+
+})
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   switch(request.cmd){
     case "doAuthorize":doAuthorize(sendResponse);break;
   case "getAuthorize":getAuthorize(sendResponse);break;
   case "signOut":signOut(sendResponse);break;
+  case "addval":addValue(sendResponse);break;
   }
   return true;
 });
+
 
 
 function doAuthorize(sendResponse){
@@ -23,36 +121,20 @@ function doAuthorize(sendResponse){
 		function(token){
       console.log('this is the token: ', token);
       chrome.storage.local.set({getToken: token}, function() {
-
         sendResponse(token)
-      });
-      gapi.client.init({
-        // Don't pass client nor scope as these will init auth2, which we don't want
-        apiKey: API_KEY,
-        discoveryDocs: DISCOVERY_DOCS,
-      }).then(function () {
-        console.log('gapi initialized')
-        chrome.identity.getAuthToken({interactive: true}, function(token) {
-          gapi.auth.setToken({
-            'access_token': token,
-          });
-    
-          gapi.client.sheets.spreadsheets.values.get({
-            spreadsheetId: SPREADSHEET_ID,
-            range: SPREADSHEET_TAB_NAME,
-          }).then(function(response) {
-            var range = response.result;
-            console.log(range)
-          });
-
-
-        })
-        
-      }, function(error) {
-        console.log('error', error)
-      });
-		});
+    });
+  });
 }
+
+
+
+
+
+
+
+
+
+
 
 function signOut(sendResponse){
   chrome.identity.getAuthToken({ 'interactive': true }, function(token) {
@@ -70,7 +152,5 @@ function signOut(sendResponse){
 })
 sendResponse();
 }
-
-
 
 
