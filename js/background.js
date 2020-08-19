@@ -14,6 +14,7 @@ let params = {
 let SPREADSHEET_ID;
 let SPREADSHEET_TAB_NAME;
 let index;
+let init;
 
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -42,7 +43,7 @@ chrome.storage.local.get(['getToken'], function(result) {
   params.values.push(array);
  
 
-  let init = {
+ init = {
     method: 'PUT',
     async: true,
     body:JSON.stringify(params),
@@ -57,51 +58,29 @@ chrome.storage.local.get(['getToken'], function(result) {
       init)
       .then((response) => console.log(response))
 
+
         }
+
       })
     }
 
 
     if(request.removeVal === 'delete'){
-      let index = request.ind;
-    
-      chrome.storage.local.get(['getToken'], function(result) {
-        let access_token = result.getToken;
-        if(access_token){
-          
-        let request = {
-          method: 'GET',
-          async: true,
-          headers: {
-            Authorization: 'Bearer ' + access_token,
-            'Content-Type': 'application/json'
-          },
-          'contentType': 'json',
-          };
-        fetch(
-            `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SPREADSHEET_TAB_NAME}!A:C`,
-            request)
-            .then((response) => response.json())
-            .then(function(data) {
-            let vals = data.values;
-            vals.pop()
-              console.log(vals)
-              
+      index = request.ind;
+      console.log(index)
+      
+      let indx = index + 1;   
+      
+      fetch(
+       `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/Sheet1!A${indx}:C${indx}:clear`,
+        Object.assign({},init,{method:'POST',body:""}))
+       .then((response) => console.log(response))
+             }
+
+
             })
-    
-  
+        
 
-               
-              
-    
-
-              }
-            })
-          }
-
-
-
-})
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   switch(request.cmd){
@@ -152,5 +131,6 @@ function signOut(sendResponse){
 })
 sendResponse();
 }
+
 
 

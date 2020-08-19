@@ -93,13 +93,15 @@ $( ".umma37171x" ).click(function() {
        $(".b3eo410mee").click(function () {
        
 
-        let index2 = $(this).parent().index();
+      let index2 = $(this).parent().index();
         console.log(index2);
+
+
         chrome.runtime.sendMessage({removeVal: 'delete',ind:index2});
         if (index2 > 0) {
          $('.chkhka194i')[index2].remove();
-
        }
+       
        $(this).parent().remove();
        });
         
